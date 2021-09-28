@@ -49,6 +49,20 @@ const getHostname = (url) => {
             data+="\n";
         });
 
+        // Get Domain
+        var domain_string = getHostname(window.location.href)
+        // Strip period from domain string
+        domain_string = domain_string.replace('.', '');
+        // encode the full data string so that the newlines work on the text file
+        data = encodeURI(data);
+
+        // initialize anchor tag
+        var a = document.createElement("a");
+        // Set anchor tag data
+        a.href = "data:text," + data;
+        // Set anchor tag download file name
+        a.download = domain_string + "_current_plugins.txt";
+
 
 
     });
