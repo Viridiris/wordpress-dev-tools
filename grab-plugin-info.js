@@ -23,5 +23,33 @@ const getHostname = (url) => {
         var plugin_title;
         var data = "";
 
+        // Loop through the plugin list ignoring update messages
+        $( "#the-list tr:not(.plugin-update-tr)" ).each(function (index) {
+
+            // Get plugin title
+            plugin_title = $(this).find( ".plugin-title strong" ).html();
+            // Update line
+            data += plugin_title + " ";
+
+            // Get the section of the plugin row with the version info
+            plugin_version = $(this).find( ".column-description .plugin-version-author-uri" ).html();
+            // Extract the version number text from the full row
+            plugin_version = plugin_version.substring(0, plugin_version.indexOf('|'));
+            // Update line
+            data+=plugin_version;
+
+            // Check that the plugin is active and update row with info
+            if ($( this ).hasClass( "active" )) {
+                data += " - Active";
+            } else {
+                data += " - Inactive";
+            }
+
+            // Add newline
+            data+="\n";
+        });
+
+
+
     });
 })();
