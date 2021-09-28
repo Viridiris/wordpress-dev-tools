@@ -63,7 +63,11 @@ const getHostname = (url) => {
         // Set anchor tag download file name
         a.download = domain_string + "_current_plugins.txt";
 
-
+        // Check with user before download
+        var confirm_i = confirm("Download the plugin list?");
+        if (confirm_i == true) {
+            a.click();
+        }
 
     });
 })();
