@@ -9,9 +9,19 @@
 // @grant        none
 // ==/UserScript==
 
+const getHostname = (url) => {
+    // use URL constructor and return hostname
+    return new URL(url).hostname;
+}
+
 (function() {
     'use strict';
     $( document ).ready(function() {
+
+        // initilize variables.
+        var plugin_version;
+        var plugin_title;
+        var data = "";
 
     });
 })();
