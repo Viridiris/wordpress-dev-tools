@@ -65,7 +65,7 @@ const getHostname = (url) => {
 
         // Check with user before download
         var confirm_i = confirm("Download the plugin list?");
-        if (confirm_i == true) {
+        if (confirm_i) {
             a.click();
         }
 
